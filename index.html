@@ -1168,241 +1168,6 @@
 
         .form-group textarea { height: 96px; resize: none; }
 
-        /* ═══ REVIEWS ═══ */
-        #reviews {
-            background: var(--dark);
-            padding: 128px 0;
-        }
-
-        .reviews-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 56px;
-        }
-
-        .rating-banner {
-            display: flex;
-            align-items: center;
-            gap: 48px;
-            margin: 56px 0;
-            padding: 44px 48px;
-            border: 1px solid rgba(217,119,58,0.18);
-            background: rgba(217,119,58,0.025);
-        }
-
-        .rating-big {
-            font-family: 'Fraunces', serif;
-            font-size: 6.5rem;
-            font-weight: 600;
-            color: var(--gold);
-            line-height: 1;
-        }
-
-        .rating-right { flex-shrink: 0; }
-
-        .rating-stars {
-            font-size: 1.2rem;
-            color: var(--gold);
-            letter-spacing: 6px;
-            margin-top: 4px;
-        }
-
-        .rating-count {
-            font-size: 0.68rem;
-            color: var(--text);
-            margin-top: 8px;
-            letter-spacing: 0.08em;
-        }
-
-        .rating-bars {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            max-width: 360px;
-        }
-
-        .rating-bar-row {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .rating-bar-label {
-            font-size: 0.65rem;
-            color: var(--text);
-            width: 90px;
-            letter-spacing: 0.05em;
-        }
-
-        .rating-bar-track {
-            flex: 1;
-            height: 2px;
-            background: rgba(217,119,58,0.12);
-            position: relative;
-        }
-
-        .rating-bar-fill {
-            position: absolute;
-            left: 0; top: 0; bottom: 0;
-            background: var(--gold);
-        }
-
-        .rating-bar-pct {
-            font-size: 0.65rem;
-            color: var(--gold);
-            width: 36px;
-            text-align: right;
-        }
-
-        .award-badge {
-            display: inline-block;
-            border: 1px solid var(--gold);
-            padding: 20px 28px;
-            color: var(--gold);
-            font-size: 0.65rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            text-align: center;
-            line-height: 1.8;
-        }
-
-        .award-badge .award-star {
-            font-size: 1.2rem;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .review-card {
-            padding: 36px;
-            border: 1px solid rgba(217,119,58,0.1);
-            background: rgba(217,119,58,0.018);
-            transition: border-color 0.35s, background 0.35s;
-        }
-
-        .review-card:hover {
-            border-color: rgba(217,119,58,0.25);
-            background: rgba(217,119,58,0.04);
-        }
-
-        .review-stars {
-            color: var(--gold);
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
-        }
-
-        .review-text {
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-size: 1.05rem;
-            color: rgba(36,31,24,0.82);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .review-author {
-            font-size: 0.6rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--gold);
-        }
-
-        /* ═══ BOOKING SECTION ═══ */
-        #booking {
-            background: var(--dark2);
-            padding: 128px 0;
-        }
-
-        .booking-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 56px;
-        }
-
-        .booking-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
-            margin-top: 64px;
-        }
-
-        .contact-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            gap: 18px;
-            align-items: flex-start;
-        }
-
-        .contact-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
-
-        .contact-type {
-            font-size: 0.58rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: rgba(36,31,24,0.5);
-            display: block;
-        }
-
-        .contact-value {
-            color: var(--cream);
-            font-size: 0.9rem;
-            margin-top: 4px;
-            line-height: 1.5;
-            display: block;
-        }
-
-        .contact-value a {
-            color: var(--cream);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-value a:hover { color: var(--gold); }
-
-        .cashback-box {
-            padding: 28px 32px;
-            border: 1px solid rgba(217,119,58,0.2);
-            background: rgba(217,119,58,0.025);
-            margin-top: 32px;
-        }
-
-        .cashback-label {
-            font-size: 0.58rem;
-            letter-spacing: 0.28em;
-            text-transform: uppercase;
-            color: var(--gold);
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .cashback-value {
-            font-family: 'Fraunces', serif;
-            font-size: 1.6rem;
-            color: var(--cream);
-        }
-
-        .cashback-note {
-            font-size: 0.75rem;
-            color: var(--text);
-            margin-top: 8px;
-            font-weight: 300;
-            line-height: 1.6;
-        }
-
         /* ═══ FOOTER ═══ */
         footer {
             background: var(--paper);
@@ -1492,7 +1257,7 @@
             .nav-links { display: none; }
             .section { padding: 80px 24px; }
             .features-inner { padding: 0 24px; }
-            .events-inner, .reviews-inner, .booking-inner { padding: 0 24px; }
+            .events-inner { padding: 0 24px; }
             .stats-inner { padding: 0 24px; grid-template-columns: repeat(2, 1fr); }
             .stat-item { border-bottom: 1px solid rgba(217,119,58,0.12); }
             .stat-item:nth-child(2), .stat-item:nth-child(4) { border-right: none; }
@@ -1543,10 +1308,8 @@
         <li><a href="#gallery">Атмосфера</a></li>
         <li><a href="#menu">Меню</a></li>
         <li><a href="#events">Мероприятия</a></li>
-        <li><a href="#reviews">Отзывы</a></li>
-        <li><a href="#booking">Контакты</a></li>
     </ul>
-    <a href="#booking" class="nav-cta">Забронировать</a>
+    <a href="tel:+74951322899" class="nav-cta">Забронировать</a>
 </nav>
 
 <!-- ═══ HERO ═══ -->
@@ -1562,7 +1325,7 @@
         <p class="hero-sub">Уют в сердце парка</p>
         <div class="hero-line"></div>
         <div class="hero-actions">
-            <a href="#booking" class="btn-primary">Забронировать стол</a>
+            <a href="tel:+74951322899" class="btn-primary">Забронировать стол</a>
             <a href="#events" class="btn-ghost">Провести мероприятие</a>
         </div>
     </div>
@@ -1635,7 +1398,7 @@
             <h2 class="section-title">Очаг, который<br><em>зажигает</em> вечер</h2>
             <p class="hearth-desc">Каждый вечер в центре зала загорается живой огонь. Не газовая горелка, не экран — <strong>настоящие дрова</strong>, настоящее тепло, настоящий запах костра в лесу. Вокруг очага собираются гости, ведутся разговоры, рождаются вечера, которые хочется повторить.</p>
             <p class="hearth-desc">Это та самая деталь, ради которой возвращаются. Огонь, у которого хочется сидеть до полуночи.</p>
-            <a href="#booking" class="btn-primary">Забронировать стол у очага</a>
+            <a href="tel:+74951322899" class="btn-primary">Забронировать стол у очага</a>
         </div>
     </div>
 </section>
@@ -2085,166 +1848,6 @@
     </div>
 </section>
 
-<!-- ═══ REVIEWS ═══ -->
-<section id="reviews">
-    <div class="reviews-inner">
-        <div class="reveal">
-            <span class="section-label">Отзывы гостей</span>
-            <h2 class="section-title">Что говорят <em>о нас</em></h2>
-        </div>
-        <div class="rating-banner reveal">
-            <div class="rating-right">
-                <span class="rating-big">4.9</span>
-                <div class="rating-stars">★★★★★</div>
-                <div class="rating-count">4 634 отзыва · Яндекс Карты</div>
-            </div>
-            <div class="rating-bars">
-                <div class="rating-bar-row">
-                    <span class="rating-bar-label">Романтика</span>
-                    <div class="rating-bar-track"><div class="rating-bar-fill" style="width:100%"></div></div>
-                    <span class="rating-bar-pct">100%</span>
-                </div>
-                <div class="rating-bar-row">
-                    <span class="rating-bar-label">Интерьер</span>
-                    <div class="rating-bar-track"><div class="rating-bar-fill" style="width:99%"></div></div>
-                    <span class="rating-bar-pct">99%</span>
-                </div>
-                <div class="rating-bar-row">
-                    <span class="rating-bar-label">Атмосфера</span>
-                    <div class="rating-bar-track"><div class="rating-bar-fill" style="width:97%"></div></div>
-                    <span class="rating-bar-pct">97%</span>
-                </div>
-                <div class="rating-bar-row">
-                    <span class="rating-bar-label">Кухня</span>
-                    <div class="rating-bar-track"><div class="rating-bar-fill" style="width:94%"></div></div>
-                    <span class="rating-bar-pct">94%</span>
-                </div>
-            </div>
-            <div class="award-badge">
-                <span class="award-star"><svg viewBox="0 0 24 24" fill="none" stroke="#D9773A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.4 5.6 6 .5-4.6 4 1.4 5.9L12 16.4 6.8 19.5l1.4-5.9-4.6-4 6-.5L12 3.5Z"/></svg></span>
-                Хорошее место<br>2026
-            </div>
-        </div>
-        <div class="reviews-grid">
-            <div class="review-card reveal">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">«Место, которое влюбляет с первого визита. Очаг в центре зала создаёт ту особую атмосферу, которую невозможно описать словами — нужно просто приехать и почувствовать.»</p>
-                <div class="review-author">Анна К. · Москва</div>
-            </div>
-            <div class="review-card reveal reveal-delay-1">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">«Отмечали день рождения в беседке. Персонал продумал каждую мелочь. Еда — фантастическая. Хинкали такие, каких я не ела нигде в Москве.»</p>
-                <div class="review-author">Мария Р. · Яндекс Карты</div>
-            </div>
-            <div class="review-card reveal reveal-delay-2">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">«Приехали с собакой на летнюю веранду. Нас встретили как самых дорогих гостей. Лес, живой огонь, вкусная еда — идеальный вечер, который хочется повторить.»</p>
-                <div class="review-author">Дмитрий В. · Москва</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ═══ BOOKING ═══ -->
-<section id="booking">
-    <div class="booking-inner">
-        <div class="reveal">
-            <span class="section-label">Бронирование стола</span>
-            <h2 class="section-title">Мы <em>ждём</em> вас</h2>
-        </div>
-        <div class="booking-grid">
-            <div class="booking-info reveal">
-                <ul class="contact-list">
-                    <li class="contact-item">
-                        <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#D9773A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6.5-5.6 6.5-10.5A6.5 6.5 0 0 0 5.5 10.5C5.5 15.4 12 21 12 21Z"/><circle cx="12" cy="10.3" r="2.4"/></svg></span>
-                        <div>
-                            <span class="contact-type">Адрес</span>
-                            <span class="contact-value">Большая Филёвская, 22 стр. 16А<br>Филёвский парк, Москва</span>
-                        </div>
-                    </li>
-                    <li class="contact-item">
-                        <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#D9773A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 4h3l1.4 4.5L9 10a10 10 0 0 0 5 5l1.5-1.9 4.5 1.4v3a1.5 1.5 0 0 1-1.6 1.5A14.5 14.5 0 0 1 5 5.6 1.5 1.5 0 0 1 6.5 4Z"/></svg></span>
-                        <div>
-                            <span class="contact-type">Телефон</span>
-                            <span class="contact-value"><a href="tel:+74951322899">+7 (495) 132-28-99</a></span>
-                        </div>
-                    </li>
-                    <li class="contact-item">
-                        <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#D9773A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 7.5v5l3.2 2"/></svg></span>
-                        <div>
-                            <span class="contact-type">Часы работы</span>
-                            <span class="contact-value">Завтраки 11:00 – 13:00<br>Ресторан открыт ежедневно до 00:00</span>
-                        </div>
-                    </li>
-                    <li class="contact-item">
-                        <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#D9773A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 11 7 6.6A2 2 0 0 1 8.9 5.3h6.2A2 2 0 0 1 17 6.6L18.5 11"/><path d="M4.5 11h15v5.5h-2.5V15H7v1.5H4.5V11Z"/><circle cx="8" cy="15" r="1.3"/><circle cx="16" cy="15" r="1.3"/></svg></span>
-                        <div>
-                            <span class="contact-type">Парковка и проезд</span>
-                            <span class="contact-value">Бесплатная парковка на территории<br>Wi-Fi для гостей</span>
-                        </div>
-                    </li>
-                    <li class="contact-item">
-                        <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#D9773A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11.5" cy="4.5" r="1.6"/><path d="M11.5 7.5v4.5h4.2l2 5"/><path d="M11.5 9.5H7.8M6.2 20.5a4.2 4.2 0 0 0 6.3-3.1"/></svg></span>
-                        <div>
-                            <span class="contact-type">Доступность</span>
-                            <span class="contact-value">Частично доступно для маломобильных гостей</span>
-                        </div>
-                    </li>
-                </ul>
-                <div class="cashback-box">
-                    <span class="cashback-label">Программа лояльности</span>
-                    <div class="cashback-value">5% кешбэк с каждого заказа</div>
-                    <div class="cashback-note">Накапливайте бонусы и возвращайтесь — мы будем рады вас видеть снова.</div>
-                </div>
-                <br>
-                <a href="https://foxgalaxy.ru" class="btn-ghost" target="_blank" style="display:inline-block;">Перейти на официальный сайт</a>
-            </div>
-            <div class="reveal reveal-delay-1">
-                <div class="booking-form">
-                    <h3 class="form-title">Забронировать стол</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Имя</label>
-                            <input type="text" placeholder="Ваше имя">
-                        </div>
-                        <div class="form-group">
-                            <label>Телефон</label>
-                            <input type="tel" id="booking-phone" placeholder="+7 (___) ___-__-__">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Дата</label>
-                            <input type="date" id="booking-date">
-                        </div>
-                        <div class="form-group">
-                            <label>Время</label>
-                            <input type="time" value="19:00">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Количество гостей</label>
-                        <select>
-                            <option>1 гость</option>
-                            <option>2 гостя</option>
-                            <option selected>3–4 гостя</option>
-                            <option>5–6 гостей</option>
-                            <option>7–10 гостей</option>
-                            <option>Более 10 — банкет</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Особые пожелания</label>
-                        <textarea placeholder="Детский стул, аллергии, особый повод..."></textarea>
-                    </div>
-                    <button class="btn-primary" style="width:100%;font-size:0.7rem;" onclick="submitBooking(event)">Забронировать</button>
-                    <p style="margin-top:16px;font-size:0.62rem;color:var(--text);text-align:center;letter-spacing:0.05em;">Подтверждение придёт в течение 15 минут</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- ═══ FOOTER ═══ -->
 <footer>
     <div class="footer-inner">
@@ -2335,17 +1938,6 @@ function submitForm(e) {
     btn.style.background = '#1a3a1a';
     btn.style.color = '#7ec87e';
     showToast('Заявка получена — мы свяжемся с вами в течение часа');
-    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.style.color = ''; }, 4000);
-}
-
-function submitBooking(e) {
-    e.preventDefault();
-    const btn = e.target;
-    const orig = btn.textContent;
-    btn.textContent = '✓ Бронирование принято';
-    btn.style.background = '#1a3a1a';
-    btn.style.color = '#7ec87e';
-    showToast('Стол забронирован — подтверждение придёт через 15 минут');
     setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.style.color = ''; }, 4000);
 }
 
