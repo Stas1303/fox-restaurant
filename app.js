@@ -328,7 +328,26 @@ const MENU = [{"c":"Салаты","items":[{"n":"Зеленый салат В12"
         requestAnimationFrame(animateGlow);
     }
 
-    /* ── 4. Magnetic buttons ── */
+    /* ── 4. Parallax background (celebration banner) ── */
+    const pxSection = document.getElementById('celebration');
+    const pxImg = pxSection && pxSection.querySelector('.celebration__bg img');
+    if (pxImg) {
+        let ticking = false;
+        const applyParallax = () => {
+            const rect = pxSection.getBoundingClientRect();
+            if (rect.bottom > 0 && rect.top < window.innerHeight) {
+                const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+                pxImg.style.transform = `translateY(${center * -0.12}px)`;
+            }
+            ticking = false;
+        };
+        window.addEventListener('scroll', () => {
+            if (!ticking) { requestAnimationFrame(applyParallax); ticking = true; }
+        }, { passive: true });
+        applyParallax();
+    }
+
+    /* ── 5. Magnetic buttons ── */
     document.querySelectorAll('.btn-primary').forEach(btn => {
         btn.addEventListener('mousemove', (ev) => {
             const r = btn.getBoundingClientRect();

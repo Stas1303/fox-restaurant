@@ -1957,18 +1957,19 @@
             overflow: hidden;
             text-align: center;
         }
-        .celebration__bg, .celebration__bg img {
+        .celebration__bg {
             position: absolute;
             inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
         .celebration__bg img {
-            transform: scale(1.06);
-            transition: transform 8s ease;
+            position: absolute;
+            left: 0;
+            top: -18%;
+            width: 100%;
+            height: 136%;
+            object-fit: cover;
+            will-change: transform;
         }
-        #celebration:hover .celebration__bg img { transform: scale(1.12); }
         .celebration__overlay {
             position: absolute;
             inset: 0;
