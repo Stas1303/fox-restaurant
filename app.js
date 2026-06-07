@@ -3,44 +3,6 @@ window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
 });
 
-/* ═══ SCROLL QUICKBAR (шторка) ═══ */
-(() => {
-    const bar = document.getElementById('quickbar');
-    if (!bar) return;
-
-    // Не показываем на коротких страницах, где скролл почти не нужен
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    if (scrollable < 700) return;
-
-    // Подсветка активного раздела (по текущей странице)
-    const page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-    bar.querySelectorAll('.quickbar-links a').forEach(a => {
-        const href = (a.getAttribute('href') || '').toLowerCase();
-        // ссылка-оверлей "Меню" не привязана к странице — пропускаем
-        if (a.hasAttribute('data-menu-open')) return;
-        const target = href.split('#')[0].split('/').pop();
-        if (target && target === page) a.classList.add('active');
-    });
-
-    const APPEAR_AT = 140; // порог появления, px
-    let hideTimer;
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > APPEAR_AT) {
-            bar.classList.add('show');
-            clearTimeout(hideTimer);
-            hideTimer = setTimeout(() => bar.classList.remove('show'), 850);
-        } else {
-            bar.classList.remove('show');
-            clearTimeout(hideTimer);
-        }
-    }, { passive: true });
-    // keep visible while hovering so links stay clickable
-    bar.addEventListener('mouseenter', () => clearTimeout(hideTimer));
-    bar.addEventListener('mouseleave', () => {
-        hideTimer = setTimeout(() => bar.classList.remove('show'), 850);
-    });
-})();
-
 /* ═══ REVEAL ═══ */
 const revealEls = document.querySelectorAll('.reveal');
 const revealObs = new IntersectionObserver((entries) => {
