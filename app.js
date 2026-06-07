@@ -3,6 +3,29 @@ window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
 });
 
+/* ═══ MOBILE BURGER MENU ═══ */
+(() => {
+    const burger = document.getElementById('navBurger');
+    const links = document.querySelector('.nav-links');
+    const backdrop = document.getElementById('navBackdrop');
+    if (!burger || !links) return;
+
+    const setOpen = (open) => {
+        burger.classList.toggle('open', open);
+        links.classList.toggle('open', open);
+        if (backdrop) backdrop.classList.toggle('open', open);
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.body.classList.toggle('nav-open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+    };
+
+    burger.addEventListener('click', () => setOpen(!links.classList.contains('open')));
+    if (backdrop) backdrop.addEventListener('click', () => setOpen(false));
+    // close after tapping any link
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+})();
+
 /* ═══ REVEAL ═══ */
 const revealEls = document.querySelectorAll('.reveal');
 const revealObs = new IntersectionObserver((entries) => {
