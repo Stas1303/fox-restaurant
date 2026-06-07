@@ -3,6 +3,28 @@ window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
 });
 
+/* ═══ SCROLL QUICKBAR (шторка) ═══ */
+(() => {
+    const bar = document.getElementById('quickbar');
+    if (!bar) return;
+    let hideTimer;
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 220) {
+            bar.classList.add('show');
+            clearTimeout(hideTimer);
+            hideTimer = setTimeout(() => bar.classList.remove('show'), 850);
+        } else {
+            bar.classList.remove('show');
+            clearTimeout(hideTimer);
+        }
+    }, { passive: true });
+    // keep visible while hovering so links stay clickable
+    bar.addEventListener('mouseenter', () => clearTimeout(hideTimer));
+    bar.addEventListener('mouseleave', () => {
+        hideTimer = setTimeout(() => bar.classList.remove('show'), 850);
+    });
+})();
+
 /* ═══ REVEAL ═══ */
 const revealEls = document.querySelectorAll('.reveal');
 const revealObs = new IntersectionObserver((entries) => {

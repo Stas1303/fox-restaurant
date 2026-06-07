@@ -24,6 +24,16 @@
     <a href="tel:+74951322899" class="nav-cta">Забронировать</a>
 </nav>
 
+<!-- ═══ SCROLL QUICKBAR (шторка) ═══ -->
+<div class="scroll-quickbar" id="quickbar" aria-hidden="true">
+    <a href="index.html" class="quickbar-logo">FO'X</a>
+    <nav class="quickbar-links" aria-label="Быстрая навигация">
+        <a href="atmosfera.html">Атмосфера</a>
+        <a href="meropriyatiya.html">Банкеты</a>
+        <a href="index.html#menu" data-menu-open>Меню</a>
+    </nav>
+</div>
+
 <main class="subpage-main">
 <!-- ═══ EVENTS HERO ═══ -->
 <section id="events-hero">
@@ -45,7 +55,7 @@
         <div class="venue-grid">
             <article class="venue-card reveal">
                 <div class="venue-card__media">
-                    <picture><source srcset="images/hall-1.webp" type="image/webp"><img src="images/hall-1.jpg" alt="Основной зал ресторана FO'X" loading="lazy"></picture>
+                    <picture><source srcset="images/interior-wing.webp" type="image/webp"><img src="images/interior-wing.jpg" alt="Основной зал ресторана FO'X — панорамные окна в лес" loading="lazy"></picture>
                     <span class="venue-card__badge">Основной зал</span>
                 </div>
                 <div class="venue-card__body">
@@ -55,6 +65,10 @@
                         <div class="venue-stat"><b>400 000 ₽</b><span>депозит от</span></div>
                     </div>
                     <p class="venue-card__text">Просторный зал с панорамными окнами в лес и welcome-зоной для встречи гостей. Идеален для банкетов, фуршетов, свадеб и презентаций.</p>
+                    <div class="venue-card__gallery">
+                        <picture><source srcset="images/hall-1.webp" type="image/webp"><img src="images/hall-1.jpg" alt="Интерьер основного зала FO'X" loading="lazy"></picture>
+                        <picture><source srcset="images/hall-2.webp" type="image/webp"><img src="images/hall-2.jpg" alt="Зона зала FO'X" loading="lazy"></picture>
+                    </div>
                     <ul class="venue-card__tags">
                         <li>Банкеты</li><li>Свадьбы</li><li>Фуршеты</li><li>Презентации</li><li>Welcome-зона</li>
                     </ul>
@@ -62,7 +76,7 @@
             </article>
             <article class="venue-card reveal reveal-delay-1">
                 <div class="venue-card__media">
-                    <picture><source srcset="images/veranda.webp" type="image/webp"><img src="images/veranda.jpg" alt="Беседка ресторана FO'X на веранде" loading="lazy"></picture>
+                    <picture><source srcset="images/hall-2.webp" type="image/webp"><img src="images/hall-2.jpg" alt="Беседка ресторана FO'X — уютный интерьер" loading="lazy"></picture>
                     <span class="venue-card__badge">Беседка</span>
                 </div>
                 <div class="venue-card__body">
@@ -71,7 +85,11 @@
                         <div class="venue-stat"><b>25</b><span>гостей</span></div>
                         <div class="venue-stat"><b>100 000 ₽</b><span>депозит от</span></div>
                     </div>
-                    <p class="venue-card__text">Уютная беседка на свежем воздухе среди деревьев — для камерных торжеств и деловых встреч. Свадьбы, дни рождения, семейные праздники, завтраки и обеды.</p>
+                    <p class="venue-card__text">Уютная беседка среди деревьев — камерное пространство для торжеств и деловых встреч. Свадьбы, дни рождения, семейные праздники, завтраки и обеды на свежем воздухе.</p>
+                    <div class="venue-card__gallery">
+                        <picture><source srcset="images/veranda.webp" type="image/webp"><img src="images/veranda.jpg" alt="Беседка FO'X снаружи" loading="lazy"></picture>
+                        <picture><source srcset="images/terrace.webp" type="image/webp"><img src="images/terrace.jpg" alt="Терраса беседки FO'X" loading="lazy"></picture>
+                    </div>
                     <ul class="venue-card__tags">
                         <li>Дни рождения</li><li>Семейные торжества</li><li>Деловые встречи</li><li>Завтраки и обеды</li>
                     </ul>
@@ -114,100 +132,49 @@
     </div>
 </section>
 
-<!-- ═══ FORMATS + FORM ═══ -->
-<section id="events">
+<!-- ═══ MENU FOR BANQUETS ═══ -->
+<section id="events-menu">
     <div class="events-inner">
-        <div class="reveal">
-            <span class="section-label">Форматы</span>
-            <h2 class="section-title">Какой праздник <em>задумали?</em></h2>
-            <p style="margin-top:24px; color:var(--text); font-size:0.88rem; font-weight:300; max-width:520px; line-height:1.9;">Оставьте заявку — подберём зал, меню и сервис под ваш формат и бюджет. Свяжемся в течение часа.</p>
-        </div>
-        <div class="events-grid">
-            <div class="events-formats reveal">
-                <div class="event-format">
-                    <span class="event-format-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#F47B36" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 20.5V13.5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v7"/><path d="M3.5 20.5h17"/><path d="M5 16c1.4 1.1 2.6 1.1 4 0s2.6-1.1 4 0 2.6 1.1 4 0"/><path d="M12 11.5V8.5M9 11.5v-2.5M15 11.5v-2.5"/><path d="M12 5v1.2M9 5.5v.8M15 5.5v.8"/></svg></span>
-                    <div>
-                        <h4 class="event-format-title">День рождения</h4>
-                        <p class="event-format-text">Основной зал до 50 гостей или беседка на 25 — с декором, авторским меню и атмосферой под ваш праздник.</p>
-                    </div>
+        <div class="menu-banquet">
+            <div class="menu-banquet__copy reveal">
+                <span class="section-label">Меню для банкета</span>
+                <h2 class="section-title">Кухня Кавказа <em>для вашего стола</em></h2>
+                <p class="menu-banquet__lead">В ресторане FO'X обширное меню — многонациональная региональная кухня с ярким кавказским характером. Мангал на углях, выпечка из дровяной печи, горячее по рецептам горских домов и эксклюзивы бренд-шефа Бисо Чеченова.</p>
+                <p class="menu-banquet__lead">Под каждое мероприятие мы собираем банкетное меню индивидуально — по вашему формату, числу гостей и бюджету. Вся кухня соответствует стандартам <b>халяль</b>.</p>
+                <div class="menu-banquet__points">
+                    <div class="mb-point"><span class="mb-point__num">75+</span><span>авторских блюд в 12 разделах</span></div>
+                    <div class="mb-point"><span class="mb-point__num">100%</span><span>халяль на всей кухне</span></div>
                 </div>
-                <div class="event-format">
-                    <span class="event-format-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#F47B36" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="14.5" r="5.5"/><path d="M8.8 9.4 10.5 5h3l1.7 4.4"/></svg></span>
-                    <div>
-                        <h4 class="event-format-title">Романтический вечер</h4>
-                        <p class="event-format-text">Столик у очага, особое меню, живые цветы — всё для момента, который останется навсегда. 100% гостей отмечают романтику места.</p>
-                    </div>
-                </div>
-                <div class="event-format">
-                    <span class="event-format-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#F47B36" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 3.5 10 10M16.5 3.5 14 10"/><path d="M4.5 10h7a3.5 3.5 0 0 1-7 0ZM12.5 10h7a3.5 3.5 0 0 1-7 0Z"/><path d="M8 13.5V20M16 13.5V20M5.5 20.5h5M13.5 20.5h5"/></svg></span>
-                    <div>
-                        <h4 class="event-format-title">Корпоратив</h4>
-                        <p class="event-format-text">Банкет в парке — необычно, уютно, по-настоящему. Индивидуальное меню, полный сервис, полная аренда зала.</p>
-                    </div>
-                </div>
-                <div class="event-format">
-                    <span class="event-format-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#F47B36" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.4"/><circle cx="16" cy="8" r="2.4"/><path d="M3.5 19v-1.2a4.5 4.5 0 0 1 9 0V19M11.5 19v-1.2a4.5 4.5 0 0 1 9 0V19"/></svg></span>
-                    <div>
-                        <h4 class="event-format-title">Семейный праздник</h4>
-                        <p class="event-format-text">Dog friendly, открытые пространства и кухня, которую любят все — от детей до бабушек. Никаких лишних формальностей.</p>
-                    </div>
-                </div>
+                <button class="btn-primary menu-open-btn" data-menu-open style="margin-top:8px;">Смотреть полное меню</button>
             </div>
+            <div class="menu-banquet__photos reveal reveal-delay-1">
+                <figure class="mb-photo mb-photo--tall">
+                    <picture><source srcset="images/dish-kebab.webp" type="image/webp"><img src="images/dish-kebab.jpg" alt="Мясное ассорти на мангале" loading="lazy"></picture>
+                </figure>
+                <figure class="mb-photo">
+                    <picture><source srcset="images/dish-skillet.webp" type="image/webp"><img src="images/dish-skillet.jpg" alt="Горячее блюдо в сковороде" loading="lazy"></picture>
+                </figure>
+                <figure class="mb-photo">
+                    <img src="images/dish-dessert.jpg" alt="Десерт на очаге" loading="lazy">
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
 
-            <div class="reveal reveal-delay-1">
-                <div class="booking-form">
-                    <h3 class="form-title">Заявка на мероприятие</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Ваше имя</label>
-                            <input type="text" placeholder="Александр">
-                        </div>
-                        <div class="form-group">
-                            <label>Телефон</label>
-                            <input type="tel" id="event-phone" placeholder="+7 (___) ___-__-__">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Тип события</label>
-                            <select>
-                                <option value="">Выберите...</option>
-                                <option>День рождения</option>
-                                <option>Свадьба / помолвка</option>
-                                <option>Корпоратив</option>
-                                <option>Семейный праздник</option>
-                                <option>Романтический вечер</option>
-                                <option>Другое</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Количество гостей</label>
-                            <select>
-                                <option value="">Выберите...</option>
-                                <option>До 10 человек</option>
-                                <option>10–25 человек</option>
-                                <option>25–50 человек</option>
-                                <option>Более 50 человек</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Дата</label>
-                            <input type="date">
-                        </div>
-                        <div class="form-group">
-                            <label>Примерное время</label>
-                            <input type="time" value="19:00">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Пожелания</label>
-                        <textarea placeholder="Особые пожелания, украшения, меню..."></textarea>
-                    </div>
-                    <button class="btn-primary" style="width:100%;font-size:0.7rem;" onclick="submitForm(event)">Отправить заявку</button>
-                    <p style="margin-top:16px;font-size:0.65rem;color:var(--text);text-align:center;letter-spacing:0.05em;">Мы свяжемся с вами в течение часа</p>
-                </div>
+<!-- ═══ FREE TASTING ═══ -->
+<section id="tasting">
+    <div class="events-inner">
+        <div class="tasting-card reveal">
+            <div class="tasting-card__media">
+                <picture><source srcset="images/dish-toast.webp" type="image/webp"><img src="images/dish-toast.jpg" alt="Дегустация блюд FO'X" loading="lazy"></picture>
+            </div>
+            <div class="tasting-card__body">
+                <span class="tasting-card__badge">В подарок</span>
+                <h2 class="tasting-card__title">Попробуйте меню <em>бесплатно</em></h2>
+                <p class="tasting-card__text">Дегустация в подарок при заказе банкета. Мы знаем, как важно убедиться в качестве, поэтому приглашаем вас своими глазами посмотреть на наш ресторан, прочувствовать наш сервис и насладиться нашей кухней — ещё до праздника.</p>
+                <a href="tel:+74951321088" class="btn-primary" style="margin-top:8px;">Записаться на дегустацию</a>
+                <p class="tasting-card__note">Дегустация предоставляется при заказе банкета</p>
             </div>
         </div>
     </div>
