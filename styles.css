@@ -2278,29 +2278,77 @@ body.subpage .nav-cta:hover { background: var(--gold); color: var(--on-gold); bo
     .page-loader__logo, .page-loader__logo::after { animation: none; opacity: 1; width: auto; }
 }
 
-/* ── Floating WhatsApp button ── */
-.wa-float {
+/* ── Floating contacts (WhatsApp + Telegram) ── */
+.float-contacts {
     position: fixed;
     right: 22px;
     bottom: 22px;
     z-index: 1200;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: opacity .3s ease, transform .3s ease;
+}
+body.menu-open .float-contacts {
+    opacity: 0;
+    transform: translateY(16px) scale(.9);
+    pointer-events: none;
+}
+.float-btn {
+    position: relative;
     width: 58px;
     height: 58px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: #25D366;
     color: #fff;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, .35), 0 0 0 0 rgba(37, 211, 102, .55);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
     transition: transform .25s cubic-bezier(.22, 1, .36, 1), box-shadow .25s ease;
-    animation: waIn .5s .8s both, waPulse 2.6s 1.4s infinite;
 }
-.wa-float:hover {
+.float-btn svg { display: block; }
+.float-btn:hover {
     transform: scale(1.08);
     box-shadow: 0 12px 30px rgba(0, 0, 0, .45);
 }
-.wa-float svg { display: block; }
+.float-btn--wa { background: #25D366; animation: waIn .5s .8s both, waPulse 2.6s 1.4s infinite; }
+.float-btn--tg { background: #29A9EB; animation: waIn .5s .65s both; }
+/* tooltip */
+.float-btn::after {
+    content: attr(data-tip);
+    position: absolute;
+    right: calc(100% + 14px);
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+    background: #1a1a1a;
+    color: #fff;
+    font-size: .82rem;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 7px 13px;
+    border-radius: 9px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .22s ease, transform .22s ease;
+}
+.float-btn::before {
+    content: "";
+    position: absolute;
+    right: calc(100% + 6px);
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+    border: 6px solid transparent;
+    border-left-color: #1a1a1a;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .22s ease, transform .22s ease;
+}
+.float-btn:hover::after,
+.float-btn:hover::before {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
 @keyframes waIn {
     from { opacity: 0; transform: scale(.4) translateY(14px); }
     to   { opacity: 1; transform: scale(1) translateY(0); }
@@ -2311,9 +2359,12 @@ body.subpage .nav-cta:hover { background: var(--gold); color: var(--on-gold); bo
     100% { box-shadow: 0 8px 24px rgba(0,0,0,.35), 0 0 0 0 rgba(37,211,102,0); }
 }
 @media (max-width: 640px) {
-    .wa-float { width: 52px; height: 52px; right: 16px; bottom: 16px; }
-    .wa-float svg { width: 25px; height: 25px; }
+    .float-contacts { right: 16px; bottom: 16px; gap: 12px; }
+    .float-btn { width: 52px; height: 52px; }
+    .float-btn svg { width: 25px; height: 25px; }
+    /* tooltips can crowd small screens on tap — keep them subtle */
+    .float-btn::after { font-size: .76rem; padding: 6px 11px; }
 }
 @media (prefers-reduced-motion: reduce) {
-    .wa-float { animation: waIn .4s both; }
+    .float-btn--wa, .float-btn--tg { animation: waIn .4s both; }
 }
