@@ -702,7 +702,8 @@
         }
         .chef-video-row {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: minmax(0, 420px);
+            justify-content: center;
             gap: 22px;
         }
         .chef-video {
