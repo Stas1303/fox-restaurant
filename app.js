@@ -277,17 +277,25 @@ const MENU = [{"c":"Салаты","items":[{"n":"Зеленый салат В12"
 (() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /* ── 1. Page loader ── */
+    /* ── 1. Page loader (only on first visit this session) ── */
     const loader = document.getElementById('pageLoader');
     if (loader) {
-        const dismiss = () => setTimeout(() => {
-            loader.classList.add('done');
-            setTimeout(() => loader.remove(), 800);
-        }, reduce ? 0 : 750);
-        if (document.readyState === 'complete') dismiss();
-        else window.addEventListener('load', dismiss);
-        // safety: never trap the page
-        setTimeout(dismiss, 3500);
+        let seen = false;
+        try { seen = sessionStorage.getItem('foxLoaderSeen') === '1'; } catch (e) {}
+        if (seen) {
+            // Returning visitor — skip animation entirely
+            loader.remove();
+        } else {
+            try { sessionStorage.setItem('foxLoaderSeen', '1'); } catch (e) {}
+            const dismiss = () => setTimeout(() => {
+                loader.classList.add('done');
+                setTimeout(() => loader.remove(), 800);
+            }, reduce ? 0 : 750);
+            if (document.readyState === 'complete') dismiss();
+            else window.addEventListener('load', dismiss);
+            // safety: never trap the page
+            setTimeout(dismiss, 3500);
+        }
     }
 
     if (reduce) return;
