@@ -277,6 +277,18 @@ const MENU = [{"c":"Салаты","items":[{"n":"Зеленый салат В12"
 (() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    /* ── 0. Floating contacts: reveal after first screen ── */
+    const contacts = document.querySelector('.float-contacts');
+    if (contacts) {
+        const THRESHOLD = () => window.innerHeight * 0.6;
+        const toggleContacts = () => {
+            contacts.classList.toggle('revealed', window.scrollY > THRESHOLD());
+        };
+        window.addEventListener('scroll', toggleContacts, { passive: true });
+        window.addEventListener('resize', toggleContacts, { passive: true });
+        toggleContacts();
+    }
+
     /* ── 1. Page loader (only on first visit this session) ── */
     const loader = document.getElementById('pageLoader');
     if (loader) {

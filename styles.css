@@ -2287,7 +2287,13 @@ body.subpage .nav-cta:hover { background: var(--gold); color: var(--on-gold); bo
     display: flex;
     flex-direction: column;
     gap: 14px;
-    transition: opacity .3s ease, transform .3s ease;
+    transition: opacity .35s ease, transform .35s ease;
+}
+/* hidden until the user scrolls past the first screen */
+.float-contacts:not(.revealed) {
+    opacity: 0;
+    transform: translateY(20px) scale(.85);
+    pointer-events: none;
 }
 body.menu-open .float-contacts {
     opacity: 0;
