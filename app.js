@@ -3,6 +3,16 @@ window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
 });
 
+/* ═══ BACK TO TOP ═══ */
+(() => {
+    const btn = document.getElementById('toTop');
+    if (!btn) return;
+    const toggle = () => btn.classList.toggle('show', window.scrollY > 600);
+    window.addEventListener('scroll', toggle, { passive: true });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    toggle();
+})();
+
 /* ═══ MOBILE BURGER MENU ═══ */
 (() => {
     const burger = document.getElementById('navBurger');
