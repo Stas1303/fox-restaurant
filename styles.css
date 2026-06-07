@@ -52,11 +52,15 @@
             font-size: 2.2rem;
             font-weight: 600;
             letter-spacing: 0.25em;
-            color: #F6F1E6;
             text-decoration: none;
-            transition: color 0.4s;
+            transition: filter 0.4s;
+            background: linear-gradient(120deg, var(--fire1), var(--fire2) 45%, var(--fire3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: var(--gold);
         }
-        nav.scrolled .nav-logo { color: var(--cream); }
+        nav.scrolled .nav-logo { filter: brightness(1.08); }
 
         .nav-links {
             display: flex;
@@ -173,6 +177,11 @@
         }
         .quickbar-links a:hover { color: var(--gold-light); }
         .quickbar-links a:hover::after { width: 100%; }
+        .quickbar-links a.active {
+            color: var(--gold);
+            font-weight: 700;
+        }
+        .quickbar-links a.active::after { width: 100%; }
         @media (max-width: 560px) {
             .scroll-quickbar { gap: 20px; padding: 12px 18px; }
             .quickbar-logo { font-size: 1.1rem; }
@@ -1644,13 +1653,18 @@
         /* ═══ REVEAL ANIMATION ═══ */
         .reveal {
             opacity: 0;
-            transform: translateY(36px);
-            transition: opacity 0.9s ease, transform 0.9s ease;
+            transform: translateY(40px);
+            filter: blur(6px);
+            transition: opacity 1s cubic-bezier(.22,1,.36,1),
+                        transform 1.05s cubic-bezier(.22,1,.36,1),
+                        filter 1s ease;
+            will-change: opacity, transform, filter;
         }
 
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
+            filter: blur(0);
         }
 
         .reveal-delay-1 { transition-delay: 0.1s; }
@@ -2093,3 +2107,110 @@ body.subpage .nav-cta:hover { background: var(--gold); color: var(--on-gold); bo
     body.subpage nav { padding: 14px 24px; }
 }
 
+
+/* ════════════════════════════════════════════════════════
+   PREMIUM UX ANIMATIONS (site-wide)
+   ════════════════════════════════════════════════════════ */
+
+/* ── 1. Page loader curtain ───────────────────────────── */
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 4000;
+    background: #0B0703;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+.page-loader.done {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.page-loader__logo {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.6rem, 9vw, 5.2rem);
+    letter-spacing: 0.09em;
+    font-weight: 600;
+    background: linear-gradient(120deg, var(--fire1), var(--fire2) 45%, var(--fire3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+    animation: loaderLogo 1.05s cubic-bezier(.22,1,.36,1) forwards;
+}
+.page-loader__logo::after {
+    content: '';
+    display: block;
+    height: 2px;
+    margin-top: 14px;
+    width: 0;
+    background: linear-gradient(90deg, var(--fire1), var(--fire3));
+    animation: loaderBar 1s ease 0.15s forwards;
+}
+@keyframes loaderLogo { to { opacity: 1; transform: none; } }
+@keyframes loaderBar  { to { width: 100%; } }
+
+/* ── 2. Ambient embers (floating sparks) ──────────────── */
+.embers {
+    position: fixed;
+    inset: 0;
+    z-index: 900;
+    pointer-events: none;
+    overflow: hidden;
+}
+.ember {
+    position: absolute;
+    bottom: -12px;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,175,70,0.95), rgba(255,90,20,0) 70%);
+    opacity: 0;
+    animation: emberRise linear infinite;
+}
+@keyframes emberRise {
+    0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+    12%  { opacity: 0.7; }
+    85%  { opacity: 0.35; }
+    100% { transform: translateY(-108vh) translateX(var(--drift, 24px)) scale(0.3); opacity: 0; }
+}
+
+/* ── 3. Cursor glow (desktop) ─────────────────────────── */
+.cursor-glow {
+    position: fixed;
+    top: 0; left: 0;
+    width: 460px; height: 460px;
+    border-radius: 50%;
+    margin: -230px 0 0 -230px;
+    pointer-events: none;
+    z-index: 800;
+    background: radial-gradient(circle, rgba(255,110,30,0.12), rgba(255,110,30,0) 62%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    will-change: transform;
+}
+.cursor-glow.active { opacity: 1; }
+@media (hover: none) { .cursor-glow { display: none; } }
+
+/* ── 4. Premium button shine ──────────────────────────── */
+.btn-primary { position: relative; overflow: hidden; }
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -130%;
+    width: 55%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-22deg);
+    pointer-events: none;
+}
+.btn-primary:hover::after { animation: btnShine 0.85s ease; }
+@keyframes btnShine { to { left: 145%; } }
+
+/* ── Respect reduced-motion ───────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .embers, .cursor-glow { display: none; }
+    .reveal { filter: none; transition: opacity 0.4s ease; transform: none; }
+    .page-loader__logo, .page-loader__logo::after { animation: none; opacity: 1; width: auto; }
+}

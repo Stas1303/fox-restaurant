@@ -7,9 +7,25 @@ window.addEventListener('scroll', () => {
 (() => {
     const bar = document.getElementById('quickbar');
     if (!bar) return;
+
+    // Не показываем на коротких страницах, где скролл почти не нужен
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    if (scrollable < 700) return;
+
+    // Подсветка активного раздела (по текущей странице)
+    const page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    bar.querySelectorAll('.quickbar-links a').forEach(a => {
+        const href = (a.getAttribute('href') || '').toLowerCase();
+        // ссылка-оверлей "Меню" не привязана к странице — пропускаем
+        if (a.hasAttribute('data-menu-open')) return;
+        const target = href.split('#')[0].split('/').pop();
+        if (target && target === page) a.classList.add('active');
+    });
+
+    const APPEAR_AT = 140; // порог появления, px
     let hideTimer;
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 220) {
+        if (window.scrollY > APPEAR_AT) {
             bar.classList.add('show');
             clearTimeout(hideTimer);
             hideTimer = setTimeout(() => bar.classList.remove('show'), 850);
@@ -253,4 +269,73 @@ const MENU = [{"c":"Салаты","items":[{"n":"Зеленый салат В12"
     document.querySelectorAll('[data-menu-open]').forEach(el => el.addEventListener('click', openMenu));
     document.querySelectorAll('[data-menu-close]').forEach(el => el.addEventListener('click', closeMenu));
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeMenu(); });
+})();
+
+/* ════════════════════════════════════════════════════════
+   PREMIUM UX ANIMATIONS (site-wide)
+   ════════════════════════════════════════════════════════ */
+(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ── 1. Page loader ── */
+    const loader = document.getElementById('pageLoader');
+    if (loader) {
+        const dismiss = () => setTimeout(() => {
+            loader.classList.add('done');
+            setTimeout(() => loader.remove(), 800);
+        }, reduce ? 0 : 750);
+        if (document.readyState === 'complete') dismiss();
+        else window.addEventListener('load', dismiss);
+        // safety: never trap the page
+        setTimeout(dismiss, 3500);
+    }
+
+    if (reduce) return;
+
+    /* ── 2. Ambient embers ── */
+    const embers = document.createElement('div');
+    embers.className = 'embers';
+    const N = window.innerWidth < 640 ? 14 : 26;
+    for (let i = 0; i < N; i++) {
+        const e = document.createElement('span');
+        e.className = 'ember';
+        const size = 3 + Math.random() * 4;
+        e.style.left = (Math.random() * 100) + 'vw';
+        e.style.width = e.style.height = size + 'px';
+        e.style.setProperty('--drift', (Math.random() * 120 - 60) + 'px');
+        e.style.animationDuration = (9 + Math.random() * 11) + 's';
+        e.style.animationDelay = (-Math.random() * 18) + 's';
+        embers.appendChild(e);
+    }
+    document.body.appendChild(embers);
+
+    /* ── 3. Cursor glow (desktop only) ── */
+    if (window.matchMedia('(hover: hover)').matches) {
+        const glow = document.createElement('div');
+        glow.className = 'cursor-glow';
+        document.body.appendChild(glow);
+        let gx = window.innerWidth / 2, gy = window.innerHeight / 2, tx = gx, ty = gy;
+        window.addEventListener('mousemove', (ev) => {
+            tx = ev.clientX; ty = ev.clientY;
+            glow.classList.add('active');
+        }, { passive: true });
+        const animateGlow = () => {
+            gx += (tx - gx) * 0.12;
+            gy += (ty - gy) * 0.12;
+            glow.style.transform = `translate(${gx}px, ${gy}px)`;
+            requestAnimationFrame(animateGlow);
+        };
+        requestAnimationFrame(animateGlow);
+    }
+
+    /* ── 4. Magnetic buttons ── */
+    document.querySelectorAll('.btn-primary').forEach(btn => {
+        btn.addEventListener('mousemove', (ev) => {
+            const r = btn.getBoundingClientRect();
+            const mx = ev.clientX - r.left - r.width / 2;
+            const my = ev.clientY - r.top - r.height / 2;
+            btn.style.transform = `translate(${mx * 0.18}px, ${my * 0.28}px)`;
+        });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
 })();
