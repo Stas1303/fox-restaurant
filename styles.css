@@ -2424,3 +2424,64 @@ body.nav-open .to-top {
 @media (max-width: 640px) {
     .to-top { left: 16px; bottom: 16px; width: 46px; height: 46px; }
 }
+
+/* ── Lightbox (кликабельные фото) ── */
+picture img,
+.menu-card__img img,
+.venue-card__gallery img {
+    cursor: zoom-in;
+}
+.flip-card picture img,
+.hero-media img,
+.celebration__bg img,
+nav picture img {
+    cursor: inherit;
+}
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 4000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    background: rgba(6, 4, 2, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+}
+.lightbox.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+.lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .6);
+    transform: scale(.96);
+    transition: transform .3s cubic-bezier(.22, 1, .36, 1);
+}
+.lightbox.open img { transform: scale(1); }
+.lightbox__close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(20, 14, 9, 0.7);
+    border: 1px solid rgba(246, 241, 230, 0.3);
+    color: var(--cream);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background .25s ease, color .25s ease;
+}
+.lightbox__close:hover { background: var(--gold); color: #fff; border-color: var(--gold); }

@@ -3,6 +3,46 @@ window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
 });
 
+/* ═══ LIGHTBOX (кликабельные фото) ═══ */
+(() => {
+    const box = document.createElement('div');
+    box.className = 'lightbox';
+    box.innerHTML = '<button class="lightbox__close" aria-label="Закрыть">&times;</button><img alt="">';
+    document.body.appendChild(box);
+    const bigImg = box.querySelector('img');
+    const closeBtn = box.querySelector('.lightbox__close');
+
+    const open = (src, alt) => {
+        bigImg.src = src;
+        bigImg.alt = alt || '';
+        box.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    };
+    const close = () => {
+        box.classList.remove('open');
+        document.body.style.overflow = '';
+    };
+
+    document.addEventListener('click', (e) => {
+        const img = e.target.closest('img');
+        if (!img) return;
+        // только контентные фото; пропускаем интерактив и декор
+        if (img.closest('nav')) return;
+        if (img.closest('.flip-card')) return;
+        if (img.closest('.hero-media')) return;
+        if (img.closest('.celebration__bg')) return;
+        if (img.closest('.lightbox')) return;
+        if (!img.closest('picture') && !img.closest('.menu-card')) return;
+        if (img.getBoundingClientRect().width < 80) return;
+        e.preventDefault();
+        open(img.currentSrc || img.src, img.alt);
+    });
+
+    closeBtn.addEventListener('click', close);
+    box.addEventListener('click', (e) => { if (e.target === box) close(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && box.classList.contains('open')) close(); });
+})();
+
 /* ═══ BACK TO TOP ═══ */
 (() => {
     const btn = document.getElementById('toTop');
